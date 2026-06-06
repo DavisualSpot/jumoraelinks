@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jumorae Jewelry</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;600&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0d2b1f;
+    --green-mid: #143d2a;
+    --green-surface: #1a4a34;
+    --green-border: #2a6647;
+    --gold: #c9a84c;
+    --gold-light: #e0c170;
+    --gold-dim: #9a7a35;
+    --gold-pale: #f5e9c8;
+    --cream: #f2e8d0;
+    --text-muted: #a89c7a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--green-deep);
+    background-image: url('jumoraebg.png'); /* 👈 Replace with your image filename */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--cream);
+  }
+
+  .page-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .inner {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  /* ── Header ── */
+  .brand-header {
+    text-align: center;
+    margin-bottom: 2.2rem;
+  }
+
+  .logo-ring {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--green-mid);
+    border: 1.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo-ring::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    border: 0.5px solid var(--gold-dim);
+  }
+
+  .logo-ring svg {
+    width: 52px;
+    height: 52px;
+  }
+
+  .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 8vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .brand-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.35em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-top: 0.35rem;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 1rem auto 0;
+    width: fit-content;
+  }
+
+  .divider-line {
+    width: 40px;
+    height: 0.5px;
+    background: var(--gold-dim);
+  }
+
+  .divider-diamond {
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  .tagline {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.9rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Section label ── */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    margin-top: 1.8rem;
+  }
+
+  /* ── Link buttons ── */
+  .link-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 0.65rem;
+    background: #0c1813;
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--cream);
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .link-btn::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .link-btn:hover {
+    background: #0f2d20;
+    border-color: var(--gold-dim);
+    transform: translateY(-1px);
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .link-btn:hover::before { opacity: 1; }
+
+  .link-btn:active { transform: translateY(0); }
+
+  .btn-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 0.9rem;
+  }
+
+  .btn-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--gold);
+  }
+
+  .btn-text { flex: 1; }
+
+  .btn-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+    font-weight: 600;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  .btn-desc {
+    font-size: 0.96rem;
+    color: var(--gold-pale);
+    display: block;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .btn-arrow {
+    color: var(--gold-dim);
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  /* ── Featured / promo button ── */
+  .link-btn.featured {
+    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.05));
+    border-color: var(--gold-dim);
+  }
+
+  .link-btn.featured:hover {
+    background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.1));
+    border-color: var(--gold);
+  }
+
+  .promo-badge {
+    position: absolute;
+    top: 8px; right: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+    color: var(--green-deep);
+    background: var(--gold);
+    padding: 2px 7px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── Contact strip ── */
+  .contact-strip {
+    background: var(--green-mid);
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    margin-top: 0.4rem;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    padding: 0.3rem 0;
+    font-style: italic;
+  }
+
+  .contact-row + .contact-row {
+    border-top: 0.5px solid var(--green-border);
+    margin-top: 0.3rem;
+    padding-top: 0.6rem;
+  }
+
+  .contact-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--gold-dim);
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    text-align: center;
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 0.5px solid var(--green-border);
+  }
+
+  .footer-text {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--green-border);
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div class="inner">
+
+    <!-- Header -->
+    <div class="brand-header">
+      <!-- <div class="brand-name p-5">Jùmorae</div> -->
+      <!-- <div class="brand-sub">Jewelry</div> -->
+
+      <img class="pt-5" style="width: 70%;" src="Jumoraelogo.png" alt="">
+
+      <!-- <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-diamond"></div>
+        <div class="divider-line"></div>
+      </div> -->
+
+      <p class="tagline" style="font-size: 1.5rem;">Handcrafted Luxury. Worn with Intention.</p>
+    </div>
+
+    <!-- Social Section -->
+    <div class="section-label">Follow Us</div>
+
+    <a class="link-btn" href="https://www.instagram.com/jumoraee/" target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <!-- Instagram icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </div>
+      <div class="btn-text">
+        <span class="btn-title">Instagram</span>
+        <span class="btn-desc">@jumoraejewelry</span>
+      </div>
+      <span class="btn-arrow">›</span>
+    </a>
+
+    <a class="link-btn" href="https://www.facebook.com/share/14fnz7tmYLZ/" target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <!-- Facebook icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </div>
+      <div class="btn-text">
+        <span class="btn-title">Facebook</span>
+        <span class="btn-desc">Jumorae Jewelry</span>
+      </div>
+      <span class="btn-arrow">›</span>
+    </a>
+
+    <!-- Shop / Website Section -->
+    <div class="section-label">Shop & Explore</div>
+
+    <a class="link-btn featured" href="" target="" rel="noopener">
+      <span class="promo-badge">Coming Soon</span>
+      <div class="btn-icon">
+        <!-- Globe icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0C5.374 0 0 5.373 0 12c0 6.628 5.374 12 12 12 6.628 0 12-5.372 12-12 0-6.627-5.372-12-12-12zm-.036 4.007c.53.003 1.006.02 1.437.056-.047.032-.1.06-.145.093-.397.297-.8.59-1.17.907-.368.315-.565.703-.565 1.143 0 .64.308 1.193.883 1.594.14.098.286.183.43.262-.137.073-.277.15-.42.233-.574.34-.87.82-.87 1.384 0 .7.395 1.29 1.096 1.633.185.09.375.17.566.245-.086.077-.167.158-.244.245-.38.43-.574.94-.574 1.49 0 .865.432 1.57 1.217 1.976.135.07.274.13.414.186-.04.07-.074.14-.11.212-.342.698-.52 1.47-.52 2.27 0 .166.008.33.024.494-1.14-.43-2.096-1.108-2.82-1.988-.875-1.067-1.39-2.437-1.39-3.93 0-3.46 2.807-6.265 6.266-6.265h.015zm2.76.315c1.08.407 2.036 1.06 2.77 1.917.877 1.065 1.394 2.434 1.394 3.93 0 3.46-2.806 6.265-6.265 6.265-.19 0-.378-.008-.565-.024.04-.115.083-.23.132-.34.34-.78.836-1.454 1.48-1.97.082-.065.166-.126.25-.185.18.056.365.1.553.128.52.08 1.05.07 1.566-.02.137-.024.274-.055.41-.092.035.06.073.12.114.178.4.563.97.913 1.62.913.254 0 .5-.056.73-.16.48-.213.82-.65.82-1.15 0-.175-.04-.344-.115-.5-.148-.306-.422-.547-.757-.668-.093-.033-.19-.055-.288-.065.028-.163.044-.33.044-.502 0-.64-.197-1.232-.542-1.714-.052-.07-.107-.14-.165-.206.06-.023.12-.047.178-.074.572-.253.97-.767.97-1.364 0-.394-.148-.755-.393-1.03-.396-.443-.996-.677-1.65-.59-.064.01-.128.022-.19.038-.07-.273-.168-.538-.295-.795-.277-.565-.685-1.04-1.19-1.387z"/>
+        </svg>
+      </div>
+      <div class="btn-text">
+        <span class="btn-title">Official Website</span>
+        <span class="btn-desc">Full collection — launching soon</span>
+      </div>
+      <span class="btn-arrow">›</span>
+    </a>
+
+    <a class="link-btn" href="https://wa.me/2348166049927" target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <!-- WhatsApp icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </div>
+      <div class="btn-text">
+        <span class="btn-title">WhatsApp Us</span>
+        <span class="btn-desc">Order, enquire & reserve pieces</span>
+      </div>
+      <span class="btn-arrow">›</span>
+    </a>
+
+    <a class="link-btn" href="https://www.instagram.com/jumoraee/" target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <!-- Tag/promo icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
+        </svg>
+      </div>
+      <div class="btn-text">
+        <span class="btn-title">Current Promos</span>
+        <span class="btn-desc">Latest deals & new arrivals</span>
+      </div>
+      <span class="btn-arrow">›</span>
+    </a>
+
+    <!-- Contact Section -->
+    <div class="section-label">Contact & Location</div>
+
+    <div class="contact-strip">
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+        </div>
+        <span style="font-size: 1.2rem;">3rd Floor, Grand Square, inside Kingflash Photo Studio, Abuja</span>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+        </div>
+        <a href="tel:+2348166049927" style="color: var(--gold-dim); text-decoration: none; font-size: 1.2rem;">+234 816 604 9927</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">
+      <div class="divider" style="margin: 0 auto 0.8rem;">
+        <div class="divider-line" style="width: 25px;"></div>
+        <div class="divider-diamond"></div>
+        <div class="divider-line" style="width: 25px;"></div>
+      </div>
+      <p class="footer-text">© 2026 Jùmorae Jewelry · Abuja, Nigeria</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
